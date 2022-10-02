@@ -39,7 +39,7 @@ const filmSchema = mongoose.Schema({
     },
     created_by:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"User",
+        ref:"Users",
     },
     created_at:{
         type:Date,

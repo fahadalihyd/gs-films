@@ -12,4 +12,9 @@ const filmSchema = yup.object({
 //  photo: yup.string().required(),
 });
 
+export const commentSchema = yup.object({
+  comment: yup.string().required(),
+//  photo: yup.string().required(),
+});
+
 export default filmSchema;
