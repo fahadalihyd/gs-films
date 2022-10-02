@@ -34,10 +34,10 @@ router.post('/login' , validateResourceYup(userLoginSchema) , async (req,res, ne
         bcrypt.compare(userBody.password , user.password , (err , match) => {
             let  jsonUser = user.toJSON();
             jsonUser.token = generateAccessToken(jsonUser);
-            match == true ? res.status(200).json(success("login successfully!" , jsonUser)) : res.status(500).json(custom_error("Invalid Credentials!")) ;
+            match == true ? res.status(200).json(success("login successfully!" , jsonUser)) : res.status(400).json(custom_error("Invalid Credentials!")) ;
         });
     } catch (error) {
-        res.status(500).json(custom_error("Invalid Email!"));
+        res.status(400).json(custom_error("Invalid Email!"));
     }
 });
 

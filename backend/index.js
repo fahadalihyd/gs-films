@@ -17,6 +17,7 @@ const _PORT = process.env.PORT || 8001;
 app.use(bodyParser.json({limit:"30mb"}));
 app.use(bodyParser.urlencoded({extended:true }));
 app.use(cors());
+app.use(express.static('./public'));
 
 
 // Routes
@@ -27,7 +28,6 @@ app.use('/comment' , Comment);
 app.use(authenticateToken);
 
 // Access to public DIR
-app.use(express.static('./public'));
 
 
 // Middleware
