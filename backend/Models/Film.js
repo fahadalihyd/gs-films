@@ -7,7 +7,7 @@ const filmSchema = mongoose.Schema({
     },
     slug: {
         type:String,
-        required: true,
+        // required: true,
     },
     description:{
         type:String,

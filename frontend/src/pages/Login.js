@@ -21,7 +21,8 @@ const Login = () => {
     const loginHandel =  async () => {
         try {
             let response = await appRequest.post("/auth/login" , {email,password});
-            localStorage.setItem('user' , response.data);
+            localStorage.setItem('user' , JSON.stringify(response.data));
+            window.location.reload();
         } catch (error) {
             console.log(error.response.data.message);
         }    

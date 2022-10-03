@@ -19,10 +19,12 @@ const Register = () => {
     }, [])
     
     
-    const loginHandel =  async () => {
+    const registerHandel =  async () => {
         try {
             let response = await appRequest.post("/auth/register" , {email,password,name});
-            localStorage.setItem('user' , response.data);
+            localStorage.setItem('user' , JSON.stringify(response.data));
+            alert("Registered Successfully!");
+            window.location.reload();
         } catch (error) {
             console.log(error.response.data.message);
         }    
@@ -50,7 +52,7 @@ const Register = () => {
                         <input type={'password'} className={`form-control`} required onChange={(e) => { setPassword(e.target.value)}} />
                     </div>
                     <div className="form-group text-left">
-                        <button className="btn btn-primary mt-3" onClick={loginHandel}>Login</button>
+                        <button className="btn btn-primary mt-3" onClick={registerHandel}>Register</button>
                     </div>
                 </div>
                     <Link to="/">Go Back</Link>
